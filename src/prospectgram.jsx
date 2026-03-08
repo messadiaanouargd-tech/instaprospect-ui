@@ -11,8 +11,8 @@
  */
 import { useState, useEffect } from "react";
 
-const API_MODE = "mock"; // "mock" | "real"
-const API_BASE = "http://localhost:8000/api/v1";
+const API_MODE = "real"; // "mock" | "real"
+const API_BASE = "https://instaprospect.onrender.com/api";
 
 const api = {
   async post(path, body) {
