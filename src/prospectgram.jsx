@@ -44,7 +44,7 @@ async function searchAndWait(query, searchType, onProgress) {
         elapsed += 2000;
         const job = await api.get(`/search/${job_id}`);
         onProgress(Math.min((elapsed / 30000) * 90, 90));
-        if (job.status === "done") { clearInterval(interval); onProgress(100); resolve(job.results || []); }
+        if (job.status === "completed") { clearInterval(interval); onProgress(100); resolve(job.results || []); }
         else if (job.status === "failed") { clearInterval(interval); reject(new Error("Search failed")); }
       } catch (e) { clearInterval(interval); reject(e); }
     }, 2000);
